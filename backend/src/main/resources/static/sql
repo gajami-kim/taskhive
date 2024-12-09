@@ -1,0 +1,37 @@
+CREATE TABLE `user` (
+    `id` BIGINT NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(255) NOT NULL,
+    `pw` VARCHAR(255) NULL,
+    `nickname` VARCHAR(255) NOT NULL,
+    `profile` VARCHAR(255) NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `dashboard` (
+    `dash_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `id` BIGINT NOT NULL,
+    `dash_name` VARCHAR(255) NOT NULL,
+    `dash_bg` VARCHAR(255) NULL,
+    PRIMARY KEY (`dash_id`),
+    CONSTRAINT `FK_dashboard_user` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
+);
+
+CREATE TABLE `task` (
+    `task_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `dash_id` BIGINT NOT NULL,
+    `task_name` VARCHAR(255) NULL,
+    `task_state` VARCHAR(255) NOT NULL DEFAULT '0',
+    `task_date` DATETIME NULL,
+    `task_time` VARCHAR(255) NULL,
+    `task_text` TEXT NULL,
+    PRIMARY KEY (`task_id`),
+    CONSTRAINT `FK_task_dashboard` FOREIGN KEY (`dash_id`) REFERENCES `dashboard` (`dash_id`)
+);
+
+CREATE TABLE `tag` (
+	`tag_id` BIGINT NOT NULL,
+    `task_id` BIGINT NOT NULL AUTO_INCREMENT,
+    `tag` VARCHAR(255) NULL,
+    PRIMARY KEY (`tag_id`),
+    CONSTRAINT `FK_tag_task` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`)
+);
