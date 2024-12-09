@@ -19,12 +19,11 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = true)
     private String pw;
 
     @Column(nullable = false)
     private String nickname;
 
-    @Column(nullable = true)
     private String profile;
+
 }
