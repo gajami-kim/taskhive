@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Paperlogy1';
+  src: url('./font/Paperlogy-1Thin.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy2';
+  src: url('./font/Paperlogy-2ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy3';
+  src: url('./font/Paperlogy-3Light.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy4';
+  src: url('./font/Paperlogy-4Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy5';
+  src: url('./font/Paperlogy-5Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy6';
+  src: url('./font/Paperlogy-6SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy7';
+  src: url('./font/Paperlogy-7Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy8';
+  src: url('./font/Paperlogy-8ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Paperlogy9';
+  src: url('./font/Paperlogy-9Black.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratBlack';
+  src: url('./font/MontserratAlternates-Black.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratBold';
+  src: url('./font/MontserratAlternates-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'MontserratExtraBold';
+  src: url('./font/MontserratAlternates-ExtraBold.ttf');
+}
