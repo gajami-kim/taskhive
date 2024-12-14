@@ -5,9 +5,12 @@ import com.taskhive.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.nio.file.Path;
 
 @RestController
 @RequestMapping("/api/user")
@@ -31,5 +34,23 @@ public class UserController {
         }
     }
 
+    @GetMapping("/find")
+    public ResponseEntity<String> find(@RequestParam String type, @RequestParam String email) {
+        log.info("find user type {}", type);
+        log.info("find user email {}", email);
+
+        User user = null;
+        if ("email".equals(type)) {
+            user = userRepository.findByEmail(email);
+        } else if ("nickname".equals(type)) {
+            user = userRepository.findByNickname(email);
+        }
+
+        if (user != null) {
+            return ResponseEntity.ok("User found: " + user.getEmail());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+    }
 
 }

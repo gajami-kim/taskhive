@@ -1,5 +1,95 @@
 .main{
-  width: 390px;
-  height: 844px;
-  background-color: pink;
+  width: 600px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  border-left: 1px solid gainsboro;
+  border-right: 1px solid gainsboro;
+  box-shadow: 0px 0px 12px -3px #cbcbcb;
 }
+
+.logo {
+  width: 70px;
+  transform: translate(128px, 146px);
+}
+
+.title {
+  font-family: 'MontserratBold';
+  font-size: 44px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  color: #dfa802;
+}
+
+/* login.js */
+
+.join_find {
+  text-align: center;
+  font-family: 'Paperlogy3';
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.joinTag:hover, .findTag:hover{
+  font-family: 'Paperlogy5';
+}
+
+/* join.js */
+.JoinSection{
+  width: 70%;
+  margin: 300px auto;
+}
+
+.jsText {
+  text-align: center;
+  margin-bottom: 27px;
+  margin-top: -103px;
+}
+
+.jsText p:nth-child(1){
+  font-family: 'Paperlogy6';
+  font-size: 25px;
+  margin: -36px 0 10px;
+}
+
+.jsText p:nth-child(2) {
+  font-family: 'Paperlogy3';
+  padding: 0 95px;
+  line-height: 22px;
+}
+
+.jsInput input {
+  width: 88%;
+  padding: 21px;
+  margin-bottom: 13px;
+  border: 1px solid gainsboro;
+  border-radius: 50px;
+  font-family: 'Paperlogy3';
+  outline: none;
+}
+
+.joinError {
+  border: 1px solid #ffa597 !important;
+}
+
+.error {
+  color: red;
+  font-family: 'Paperlogy3';
+  text-align: center;
+  margin: -7px 0 9px;
+  font-size: 14px
+}
+
+.joinBtn{
+  width: 100%;
+  padding: 25px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #fed22b;
+  font-family: 'Paperlogy5';
+}
+
