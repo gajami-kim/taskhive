@@ -47,9 +47,9 @@ public class UserController {
         }
 
         if (user != null) {
-            return ResponseEntity.ok("User found: " + user.getEmail());
+            return ResponseEntity.ok("User found");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            return ResponseEntity.ok("User not found");
         }
     }
 
