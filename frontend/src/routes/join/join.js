@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useNavigation } from '../../context/NavigatorContext'
 import axios from "axios";
 
-
 function Join(){
 
     let navigate = useNavigation();
@@ -15,6 +14,11 @@ function Join(){
         pwch:''
     });
 
+    let DuplicationBtn = styled.button
+    `
+        position: absolute;
+        font-family: 'Paperlogy3';
+        transform: translate(-77px, 11px);
     let DuplicationBtn = styled.button`
         position: absolute;
         font-family: 'Paperlogy3';
@@ -51,6 +55,7 @@ function Join(){
             if(response.ok) {
                 alert('회원가입이 완료되었습니다!');
                 setFormData({email:'', nickname:'', pw:'', pwch:''})
+                setDisabled(true)
                 // navigate('/')
             } else {
                 const errorData = await response.json();
@@ -122,7 +127,8 @@ function Join(){
                             onChange={handleChange}
                             placeholder="이메일을 입력해주세요."
                         />
-                        <DuplicationBtn onClick={()=>{duplication('email',`${formData.email}`)}}>중복확인</DuplicationBtn>
+                        <DuplicationBtn onClick={()=>{duplication('email',formData.email)}}>중복확인</DuplicationBtn>
+
                         {error.email && <p className="error">{error.email}</p>}
                         <input 
                             className={`nickInput ${error.nickname && "joinError" ? 'joinError' : ''}`}
@@ -132,7 +138,8 @@ function Join(){
                             onChange={handleChange}
                             placeholder="닉네임을 입력해주세요."
                         />
-                        <DuplicationBtn onClick={()=>{duplication('nickname',`${formData.nickname}`)}}>중복확인</DuplicationBtn>
+                        <DuplicationBtn onClick={()=>{duplication('nickname',formData.nickname)}}>중복확인</DuplicationBtn>
+
                         {error.nickname && <p className="error">{error.nickname}</p>}
                         <input 
                             className={`pwInput ${error.pw && "joinError" ? 'joinError' : ''}`}
@@ -161,5 +168,4 @@ function Join(){
 }
 
 export default Join;
-
 

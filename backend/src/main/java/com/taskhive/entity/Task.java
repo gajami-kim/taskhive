@@ -33,4 +33,5 @@ public class Task {
 
     @Column(nullable = true)
     private String taskText;
+
 }

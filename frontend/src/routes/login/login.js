@@ -10,9 +10,9 @@ function Login(){
         width: 70%;
         background: gainsboro;
         padding: 18px 10px;
-        margin: 10px auto 10px;
+        margin: 15px auto 10px;
         text-align: center;
-        border-radius: 7px;
+        border-radius: 52px;
         font-family: 'Paperlogy3';
 
         &:hover{
@@ -25,7 +25,7 @@ function Login(){
 
     return(
         <>
-        <section className="select_login" style={{marginTop:'370px'}}>
+        <section className="select_login" style={{marginTop:'265px'}}>
             {
                 loginWay.map((a,i)=><LoginBtn className={loginWay[i]}>{loginWay[i]}로 로그인</LoginBtn>)
             }
