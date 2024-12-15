@@ -24,4 +24,5 @@ public class Dashboard {
 
     @Column(nullable = true)
     private String dashBg;
+
 }

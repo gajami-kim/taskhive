@@ -19,14 +19,17 @@ function Join(){
         position: absolute;
         font-family: 'Paperlogy3';
         transform: translate(-77px, 11px);
+    let DuplicationBtn = styled.button`
+        position: absolute;
+        font-family: 'Paperlogy3';
+        transform: translate(-77px, 7px);
         padding: 10px;
         border-radius: 26px;
         border: 1px solid gainsboro;
         outline: none;
         background: #e5e5e5;
         color: #353535;
-    `;
-    
+    `
 
     const [error, setError] = useState({})
     const [disabled, setDisabled] = useState(true);
@@ -96,52 +99,16 @@ function Join(){
         return newError;
     }
 
-
-    // const validation = (name, value) => {
-    //     const newError = {};
-
-    //     if (value=='') {
-    //         newError[name] = `${name === 'pwch' ? '비밀번호 확인' : name === 'pw' ? '비밀번호' : name === 'email' ? '이메일' : '닉네임'}을 입력해주세요.`;
-    //         return newError;
-    //     }
-
-    //     if (name === 'email') {
-    //         if (!/^[\w-.]+@[\w-]+\.[a-z]{2,4}$/i.test(value)) {
-    //             newError.email = "유효한 이메일을 입력해주세요.";
-    //         }
-    //     } else if (name === 'pw') {
-    //         if (value.length < 6) {
-    //             newError.pw = "비밀번호는 최소 6자리여야 합니다.";
-    //         }
-    //     } else if (name === 'pwch') {
-    //         if (value !== formData.pw) {
-    //             newError.pwch = "비밀번호가 일치하지 않습니다.";
-    //         }
-    //     }
-
-    //     return newError;
-    // }
-
-    const duplication = (type, value) => {
-        console.log("duplication");
-        const url = 'http://localhost:8080/api/user/find';
-        return axios.get(url, {
-            params: { type: type, email: value },
-            withCredentials: true,
-        })
-        .then(res => {
-            // console.log(res);
-            if(res.data==="User found") {
-                console.log("유저 있음")
-            } else if(res.data==="User not found") {
-                console.log("가입가능")
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    };
-    
+    const duplication = (type,value) =>{
+        const url = `http://localhost:8080/api/user/find?type=${type}&${value}`;
+        return axios.post(url)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     return(
         <section className="JoinSection">
@@ -161,6 +128,7 @@ function Join(){
                             placeholder="이메일을 입력해주세요."
                         />
                         <DuplicationBtn onClick={()=>{duplication('email',formData.email)}}>중복확인</DuplicationBtn>
+
                         {error.email && <p className="error">{error.email}</p>}
                         <input 
                             className={`nickInput ${error.nickname && "joinError" ? 'joinError' : ''}`}
@@ -171,6 +139,7 @@ function Join(){
                             placeholder="닉네임을 입력해주세요."
                         />
                         <DuplicationBtn onClick={()=>{duplication('nickname',formData.nickname)}}>중복확인</DuplicationBtn>
+
                         {error.nickname && <p className="error">{error.nickname}</p>}
                         <input 
                             className={`pwInput ${error.pw && "joinError" ? 'joinError' : ''}`}
@@ -199,3 +168,4 @@ function Join(){
 }
 
 export default Join;
+

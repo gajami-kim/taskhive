@@ -21,4 +21,5 @@ public class Tag {
 
     @Column(nullable = true)
     private long Tag;
+
 }
