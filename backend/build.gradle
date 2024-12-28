@@ -28,8 +28,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
 }
