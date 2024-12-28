@@ -93,3 +93,30 @@
   font-family: 'Paperlogy5';
 }
 
+.toastCloseBtn{
+  position: absolute;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  top: 68px;
+  border: none;
+  outline: none;
+  padding: 7px 74px;
+  border-radius: 5px;
+  color: gray;
+  font-family: 'Paperlogy3';
+}
+
+.toast-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.toast-overlay.active{
+  pointer-events: auto;
+}

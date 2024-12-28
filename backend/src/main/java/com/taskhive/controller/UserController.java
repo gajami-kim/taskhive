@@ -35,15 +35,15 @@ public class UserController {
     }
 
     @GetMapping("/find")
-    public ResponseEntity<String> find(@RequestParam String type, @RequestParam String email) {
+    public ResponseEntity<String> find(@RequestParam String type, @RequestParam String value) {
         log.info("find user type {}", type);
-        log.info("find user email {}", email);
+        log.info("find user value {}", value);
 
         User user = null;
         if ("email".equals(type)) {
-            user = userRepository.findByEmail(email);
+            user = userRepository.findByEmail(value);
         } else if ("nickname".equals(type)) {
-            user = userRepository.findByNickname(email);
+            user = userRepository.findByNickname(value);
         }
 
         if (user != null) {

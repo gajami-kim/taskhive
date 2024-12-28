@@ -122,7 +122,7 @@ function Join(){
     //     return newError;
     // }
 
-    const duplication = (type, value) => {
+    const duplication = async (type, value) => {
         console.log("duplication");
         const url = 'http://localhost:8080/api/user/find';
         return axios.get(url, {
